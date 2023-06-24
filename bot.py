@@ -10,6 +10,7 @@ oepoll = OEPoll(line)
 
 # Receive messages from OEPoll
 def RECEIVE_MESSAGE(op):
+    print(op)
     msg = op.message
     text = msg.text
     msg_id = msg.id
