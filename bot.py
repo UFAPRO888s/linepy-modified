@@ -2,7 +2,7 @@
 from ChangYedPY import *
 from ChangYedad.ttypes import *
 from Crypto.Cipher import AES
-import base64, hashlib
+import base64, hashlib ,json
 import hmac
 
 #line = LINE(idOrAuthToken='Ft9e3QReZB5i0oMQ9lS1.nDTOvWGvwK8dZoNi4xMCqq.wP1qGgy3y58cM7nJQ4kk26yWBWW9j1Vv61YxTmO/yQI=',APP_NAME="DESKTOPWIN\t5.21.3\tWindows\t10")
@@ -60,7 +60,10 @@ def RECEIVE_MESSAGE(op):
     msg_id = msg.id
     receiver = msg.to
     sender = msg._from
-    
+    chunks = msg.chunks
+    if "data:{" in chunk.decode('utf-8'):
+        chunk = json.loads(chunk.decode('utf-8').replace("data:",""))
+        print(chunk)
     try:
         # Check content only text message
         if msg.contentType == 0:
