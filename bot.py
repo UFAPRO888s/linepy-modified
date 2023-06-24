@@ -51,7 +51,10 @@ def get_decrypt_data(b64_cipher: str, secret_key: str, vector: str):
 
 # token = get_decrypt_data(enc_token, mid, primary_key)
 # print("token:", token)
-
+mid = "c5b8b1cf34fcd70f34b66082b7712fa"
+token = "szXvOjvlmIEuPfRHR8u8joHyQRsnM2fGd7YUVWoK5sxA4NhyC4JsroAnHtYMl57//8kNaNbUVGomvs9kYt6gCY8BG+xDMoIuqvMFeduraoyR0tG9+oUSxWLZ2wQI0YsbRCzPHGkelFrXYjbbF6XEBSNcGBe/QgDJJb67158ijjFwZil231bU8/I8EWoHOWsV"
+secret_key = "encrypted_mid_key"
+primary_key = get_hashed_text_with_secret_key(secret_key, mid)
 # Receive messages from OEPoll
 def RECEIVE_MESSAGE(op):
     
@@ -62,8 +65,9 @@ def RECEIVE_MESSAGE(op):
     sender = msg._from
     chunks = msg.chunks
     print(msg)
+    
     if "data:{" in chunks.decode('utf-8'):
-        chunks = json.loads(chunks.decode('utf-8').replace("data:",""))
+        chunks = get_encrypt_data(chunks,mid,primary_key)
         print(chunks)
     try:
         # Check content only text message
