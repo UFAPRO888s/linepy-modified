@@ -45,7 +45,7 @@ def get_decrypt_data(b64_cipher: str, secret_key: str, vector: str):
 # primary_key = get_hashed_text_with_secret_key(secret_key, mid)
 # print("primary key:", primary_key)
 
-# token = "Ft9e3QReZB5i0oMQ9lS1.nDTOvWGvwK8dZoNi4xMCqq.wP1qGgy3y58cM7nJQ4kk26yWBWW9j1Vv61YxTmO/yQI="
+# token = "szXvOjvlmIEuPfRHR8u8joHyQRsnM2fGd7YUVWoK5sxA4NhyC4JsroAnHtYMl57//8kNaNbUVGomvs9kYt6gCY8BG+xDMoIuqvMFeduraoyR0tG9+oUSxWLZ2wQI0YsbRCzPHGkelFrXYjbbF6XEBSNcGBe/QgDJJb67158ijjFwZil231bU8/I8EWoHOWsV"
 # enc_token = get_encrypt_data(token, mid, primary_key)
 # print("cnook token:", enc_token)
 

@@ -48,7 +48,8 @@ def get_decrypt_data(b64_cipher: str, secret_key: str, vector: str):
 KeyPairCurve = namedtuple('KeyPair', ['private_key', 'public_key', 'nonce'])
 AESKeyAndIV = namedtuple('AESKey', ['Key', 'IV'])
 
-print("KeyPairCurve",KeyPairCurve,"AESKeyAndIV",AESKeyAndIV)
+print(KeyPairCurve)
+print(AESKeyAndIV)
 
 class E2EE:
 
@@ -94,7 +95,7 @@ class E2EE:
 
     def generateParams(self):
         secret = base64.b64encode(self.Curve.public_key).decode()
-        return 'secret={secret}&e2eeVersion=1'.format(secret=quote(secret))
+        return 'secret={secret}&e2eeVersion=2'.format(secret=quote(secret))
 
     def generateSharedSecret(self, public_key):
         private_key = self.Curve.private_key
