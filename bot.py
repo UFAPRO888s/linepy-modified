@@ -61,9 +61,9 @@ def RECEIVE_MESSAGE(op):
     receiver = msg.to
     sender = msg._from
     chunks = msg.chunks
-    if "data:{" in chunk.decode('utf-8'):
-        chunk = json.loads(chunk.decode('utf-8').replace("data:",""))
-        print(chunk)
+    if "data:{" in chunks.decode('utf-8'):
+        chunks = json.loads(chunks.decode('utf-8').replace("data:",""))
+        print(chunks)
     try:
         # Check content only text message
         if msg.contentType == 0:
