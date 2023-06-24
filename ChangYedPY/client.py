@@ -41,7 +41,7 @@ class LINE(Auth, Models, Talk, Square, Call, Timeline, Liff, Shop, E2EE):
         self.keepLoggedIn = kwargs.pop('keepLoggedIn', True)
         self.customThrift = kwargs.pop('customThrift', False)
         self.ignoreSquare = kwargs.pop('ignoreSquare', True)
-        self.e2ee = kwargs.pop('e2ee', False)
+        self.e2ee = kwargs.pop('e2ee', True)
         callback = kwargs.pop('callback', None)
         if self.e2ee:
             self._e2ee = E2EE()
