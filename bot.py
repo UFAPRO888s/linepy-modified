@@ -5,9 +5,10 @@ from Crypto.Cipher import AES
 import base64, hashlib
 import hmac
 
-line = LINE(idOrAuthToken='Ft9e3QReZB5i0oMQ9lS1.nDTOvWGvwK8dZoNi4xMCqq.wP1qGgy3y58cM7nJQ4kk26yWBWW9j1Vv61YxTmO/yQI=',APP_NAME="DESKTOPWIN\t5.21.3\tWindows\t10")
+#line = LINE(idOrAuthToken='Ft9e3QReZB5i0oMQ9lS1.nDTOvWGvwK8dZoNi4xMCqq.wP1qGgy3y58cM7nJQ4kk26yWBWW9j1Vv61YxTmO/yQI=',APP_NAME="DESKTOPWIN\t5.21.3\tWindows\t10")
+line = LINE("botadd05@yahoo.com","Botline12345")
 line.log("Auth Token : " + str(line.authToken))
-#line.log("Timeline Token : " + str(line.tl.channelAccessToken))
+line.log("Timeline Token : " + str(line.tl.channelAccessToken))
 
 # Initialize OEPoll with LINE instance
 oepoll = OEPoll(line)
@@ -39,17 +40,17 @@ def get_decrypt_data(b64_cipher: str, secret_key: str, vector: str):
     b64_payload = aes.decrypt(cipher_data)
     return base64.b64decode(b64_payload.partition(b"_")[0]).decode("utf-8")
 
-secret_key = "encrypted_mid_key"
-mid = "u35db685708155a4f03cce9c8e1799c41"
-primary_key = get_hashed_text_with_secret_key(secret_key, mid)
-print("primary key:", primary_key)
+# secret_key = "encrypted_mid_key"
+# mid = "u35db685708155a4f03cce9c8e1799c41"
+# primary_key = get_hashed_text_with_secret_key(secret_key, mid)
+# print("primary key:", primary_key)
 
-token = "Ft9e3QReZB5i0oMQ9lS1.nDTOvWGvwK8dZoNi4xMCqq.wP1qGgy3y58cM7nJQ4kk26yWBWW9j1Vv61YxTmO/yQI="
-enc_token = get_encrypt_data(token, mid, primary_key)
-print("cnook token:", enc_token)
+# token = "Ft9e3QReZB5i0oMQ9lS1.nDTOvWGvwK8dZoNi4xMCqq.wP1qGgy3y58cM7nJQ4kk26yWBWW9j1Vv61YxTmO/yQI="
+# enc_token = get_encrypt_data(token, mid, primary_key)
+# print("cnook token:", enc_token)
 
-token = get_decrypt_data(enc_token, mid, primary_key)
-print("token:", token)
+# token = get_decrypt_data(enc_token, mid, primary_key)
+# print("token:", token)
 
 # Receive messages from OEPoll
 def RECEIVE_MESSAGE(op):
