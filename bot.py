@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from ChangYedPY import *
 from ChangYedad.ttypes import *
-line = LINE(idOrAuthToken='FtAJkBjCGtRXN3K4c8xd.8GSDVyigkej3RJckUOECdq.Xkyx01jvWi15PSLzOJK13RM1zww9a1pzaOGP/L/41jQ=',APP_NAME="DESKTOPWIN\t5.21.3\tWindows\t10")
+line = LINE(idOrAuthToken='Ft9e3QReZB5i0oMQ9lS1.nDTOvWGvwK8dZoNi4xMCqq.wP1qGgy3y58cM7nJQ4kk26yWBWW9j1Vv61YxTmO/yQI=',APP_NAME="DESKTOPWIN\t5.21.3\tWindows\t10")
 line.log("Auth Token : " + str(line.authToken))
 #line.log("Timeline Token : " + str(line.tl.channelAccessToken))
 
