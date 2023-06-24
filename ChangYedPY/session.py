@@ -66,7 +66,6 @@ class Session:
 
         # if isopen:
         #     self.transport.open()
-
         return self._square
 
     def Shop(self, isopen=True):
