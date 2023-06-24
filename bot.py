@@ -66,9 +66,12 @@ def RECEIVE_MESSAGE(op):
     chunks = msg.chunks
     print(msg)
     
-    if "data:{" in chunks.decode('utf-8'):
-        chunks = get_encrypt_data(chunks,mid,primary_key)
-        print(chunks)
+    try:
+        chunk = get_encrypt_data(chunks,mid,primary_key)
+        print(chunk)
+    except:
+        pass
+    
     try:
         # Check content only text message
         if msg.contentType == 0:
