@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from .transport import THttpClient
 from thrift.protocol import TCompactProtocol
-from ChangYedad import AuthService, TalkService, ChannelService, CallService, LiffService, ShopService
+from ChangYedad import AuthService, TalkService, ChannelService, CallService, SquareService, LiffService, ShopService
 
 class Session:
 
@@ -57,17 +57,17 @@ class Session:
 
         return self._call
 
-    # def Square(self, isopen=True):
-    #     self.transport = THttpClient(self.host, customThrift=self.customThrift)
-    #     self.transport.setCustomHeaders(self.headers)
+    def Square(self, isopen=True):
+        self.transport = THttpClient(self.host, customThrift=self.customThrift)
+        self.transport.setCustomHeaders(self.headers)
 
-    #     self.protocol = TCompactProtocol.TCompactProtocol(self.transport)
-    #     self._square  = SquareService.Client(self.protocol)
+        self.protocol = TCompactProtocol.TCompactProtocol(self.transport)
+        self._square  = SquareService.Client(self.protocol)
 
-    #     if isopen:
-    #         self.transport.open()
+        # if isopen:
+        #     self.transport.open()
 
-    #     return self._square
+        return self._square
 
     def Shop(self, isopen=True):
         self.transport = THttpClient(self.host, customThrift=self.customThrift)

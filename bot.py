@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from ChangYedPY import *
 from ChangYedad.ttypes import *
-line = LINE(authToken='FtAJkBjCGtRXN3K4c8xd.8GSDVyigkej3RJckUOECdq.Xkyx01jvWi15PSLzOJK13RM1zww9a1pzaOGP/L/41jQ=')
+line = LINE(idOrAuthToken='FtAJkBjCGtRXN3K4c8xd.8GSDVyigkej3RJckUOECdq.Xkyx01jvWi15PSLzOJK13RM1zww9a1pzaOGP/L/41jQ=',APP_NAME="DESKTOPWIN\t5.21.3\tWindows\t10")
 line.log("Auth Token : " + str(line.authToken))
-line.log("Timeline Token : " + str(line.tl.channelAccessToken))
+#line.log("Timeline Token : " + str(line.tl.channelAccessToken))
 
 # Initialize OEPoll with LINE instance
 oepoll = OEPoll(line)
