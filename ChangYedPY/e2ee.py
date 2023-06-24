@@ -48,6 +48,8 @@ def get_decrypt_data(b64_cipher: str, secret_key: str, vector: str):
 KeyPairCurve = namedtuple('KeyPair', ['private_key', 'public_key', 'nonce'])
 AESKeyAndIV = namedtuple('AESKey', ['Key', 'IV'])
 
+print("KeyPairCurve",KeyPairCurve,"AESKeyAndIV",AESKeyAndIV)
+
 class E2EE:
 
     def __init__(self):

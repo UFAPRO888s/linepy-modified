@@ -2,6 +2,7 @@
 
 from io import BytesIO
 from six.moves import urllib, http_client
+from urllib.parse import urlencode
 import os, socket, sys, warnings, base64, time, json, six, asyncio
 import hyper, httpx, httplib2, requests
 
