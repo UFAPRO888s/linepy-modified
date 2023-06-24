@@ -1,12 +1,26 @@
 # -*- coding: utf-8 -*-
 from ChangYedPY import *
 from ChangYedad.ttypes import *
+from Crypto.Cipher import AES
+import base64, hashlib
+import hmac
+
 line = LINE(idOrAuthToken='Ft9e3QReZB5i0oMQ9lS1.nDTOvWGvwK8dZoNi4xMCqq.wP1qGgy3y58cM7nJQ4kk26yWBWW9j1Vv61YxTmO/yQI=',APP_NAME="DESKTOPWIN\t5.21.3\tWindows\t10")
 line.log("Auth Token : " + str(line.authToken))
 #line.log("Timeline Token : " + str(line.tl.channelAccessToken))
 
 # Initialize OEPoll with LINE instance
 oepoll = OEPoll(line)
+
+def get_decrypt_data(b64_cipher: str, secret_key: str, vector: str):
+    cipher_data = base64.b64decode(b64_cipher.encode("utf-8"))
+
+    secret_key = hashlib.sha256(secret_key.encode("utf-8")).digest()
+    vector = hashlib.md5(vector.encode("utf-8")).digest()
+    aes = AES.new(secret_key, AES.MODE_CBC, vector)
+
+    b64_payload = aes.decrypt(cipher_data)
+    return base64.b64decode(b64_payload.partition(b"_")[0]).decode("utf-8")
 
 # Receive messages from OEPoll
 def RECEIVE_MESSAGE(op):
