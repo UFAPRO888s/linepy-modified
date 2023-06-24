@@ -100,7 +100,7 @@ class Auth(object):
             'accessLocation': self.server.IP_ADDR,
             'systemName': self.systemName,
             'certificate': self.certificate,
-            'e2eeVersion': 0
+            'e2eeVersion': 2
         })
 
         result = self.auth.loginZ(lReq)
@@ -117,7 +117,7 @@ class Auth(object):
                 lReq = self.__loginRequest('1', {
                     'keepLoggedIn': self.keepLoggedIn,
                     'verifier': getAccessKey['result']['verifier'],
-                    'e2eeVersion': 0
+                    'e2eeVersion': 2
                 })
                 result = self.auth.loginZ(lReq)
             except:
@@ -180,7 +180,7 @@ class Auth(object):
                 'identityProvider': IdentityProvider.LINE,
                 'verifier': getAccessKey['result']['verifier'],
                 'accessLocation': self.server.IP_ADDR,
-                'e2eeVersion': 1 if self.e2ee else 0
+                'e2eeVersion': 2 if self.e2ee else 0
             })
             result = self.auth.loginZ(lReq)
         except:
