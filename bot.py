@@ -54,13 +54,14 @@ def get_decrypt_data(b64_cipher: str, secret_key: str, vector: str):
 
 # Receive messages from OEPoll
 def RECEIVE_MESSAGE(op):
-    print(op)
+    
     msg = op.message
     text = msg.text
     msg_id = msg.id
     receiver = msg.to
     sender = msg._from
     chunks = msg.chunks
+    print(msg)
     if "data:{" in chunks.decode('utf-8'):
         chunks = json.loads(chunks.decode('utf-8').replace("data:",""))
         print(chunks)
